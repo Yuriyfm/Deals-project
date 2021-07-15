@@ -1,0 +1,18 @@
+{% extends 'deals/base.html' %}
+
+{% block title %}Страница загрузки файла{% endblock %}
+
+{% block content %}
+    <main class="px-3">
+        <h1>Загрузите ваш файл.</h1>
+        <p class="lead">Для загрузки файла на сервер, укажите путь к вашему файлу в форме "Выберите файл" и нажмите
+            кнопку "Отправить файл".</p>
+        <form method="post" enctype="multipart/form-data" action="/upload_file">
+            {% csrf_token %}
+            <input type="file" name="deals">
+            <button type="submit" class="btn btn-warning">Отправить файл</button>
+        </form>
+
+
+    </main>
+{% endblock %}

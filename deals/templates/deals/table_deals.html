@@ -1,0 +1,20 @@
+{% extends 'deals/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+      <main class="px-3">
+    <h1>Таблица загруженных сделок</h1>
+    </ul>
+  </main>
+    {% for deal in all_deals %}
+  <tr>
+    <td>{{ deal.id }}</td>
+    <td>{{ deal.customer }}</td>
+    <td>{{ deal.item }}</td>
+    <td>{{ deal.total }}</td>
+    <td>{{ deal.quantity}}</td>
+    <td>{{ deal.date }}</td>
+  </tr>
+    {% endfor %}
+{% endblock %}

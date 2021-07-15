@@ -1,0 +1,37 @@
+{% extends 'deals/base.html' %}
+
+{% block title %}Просмотр таблицы{% endblock %}
+
+{% block content %}
+<h1>Таблица всех сделок</h1>
+<table id="myTable" class="table table-dark table-striped table-hover table-bordered caption-top">
+{% if all_deals|length > 0 %}
+  <caption>table 1</caption>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Item</th>
+      <th scope="col">Total</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        {% for deal in all_deals %}
+    <th scope="row">{{ deal.auto_increment_id }}</th>
+    <td>{{ deal.customer }}</td>
+    <td>{{ deal.item }}</td>
+    <td>{{ deal.total }}</td>
+    <td>{{ deal.quantity}}</td>
+    <td>{{ deal.date }}</td>
+    </tr>
+        {% endfor %}
+  </tbody>
+</table>
+      </main>
+{% else %}
+    <h3>В таблице пока нет загруженных данных</h3>
+{% endif %}
+{% endblock %}
